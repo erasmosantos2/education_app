@@ -12,7 +12,7 @@ void main() {
   late CacheFirstTimer usecase;
 
   setUp(() {
-    repository = MockOnBoarding();
+    repository = MockOnBoardingRepository();
     usecase = CacheFirstTimer(repository);
   });
 

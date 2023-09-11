@@ -11,7 +11,7 @@ void main() {
   late CheckIfUserIsFirstTimer usecase;
 
   setUp(() {
-    repository = MockOnBoarding();
+    repository = MockOnBoardingRepository();
     usecase = CheckIfUserIsFirstTimer(repository);
   });
 
