@@ -7,26 +7,50 @@ import 'package:education_app/src/on_boarding/presentation/cubit/on_borading_cub
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final ls = GetIt.instance;
+final sl = GetIt.instance;
 
 Future<void> init() async {
-  final prefs = SharedPreferences.getInstance();
+  final prefs = await SharedPreferences.getInstance();
   // Feature --> Onboarding
   // Business Logic
-  ls
+  sl
     ..registerFactory(
       () => OnboardingCubit(
-        cacheFirstTimer: ls(),
-        checkIfUserIsFirstTimer: ls(),
+        cacheFirstTimer: sl(),
+        checkIfUserIsFirstTimer: sl(),
       ),
     )
-    ..registerLazySingleton(() => CacheFirstTimer(ls.get()))
-    ..registerLazySingleton(() => CheckIfUserIsFirstTimer(ls.get()))
+    ..registerLazySingleton(() => CacheFirstTimer(sl()))
+    ..registerLazySingleton(() => CheckIfUserIsFirstTimer(sl()))
     ..registerLazySingleton<OnBoardingRepository>(
-      () => OnBoardingRepositoryImpl(ls()),
+      () => OnBoardingRepositoryImpl(sl()),
     )
     ..registerLazySingleton<OnBoardingLocalDatasource>(
-      () => OnBoardingLocalDatasourceImpl(ls()),
+      () => OnBoardingLocalDatasourceImpl(sl()),
     )
     ..registerLazySingleton(() => prefs);
 }
+
+// final sl = GetIt.instance;
+
+// Future<void> init() async {
+//   final prefs = await SharedPreferences.getInstance();
+//   // Feature --> OnBoarding
+//   // Business Logic
+//   sl
+//     ..registerFactory(
+//       () => OnboardingCubit(
+//         cacheFirstTimer: sl(),
+//         checkIfUserIsFirstTimer: sl(),
+//       ),
+//     )
+//     ..registerLazySingleton(() => CacheFirstTimer(sl()))
+//     ..registerLazySingleton(() => CheckIfUserIsFirstTimer(sl()))
+//     ..registerLazySingleton<OnBoardingRepository>(
+//       () => OnBoardingRepositoryImpl(sl()),
+//     )
+//     ..registerLazySingleton<OnBoardingLocalDatasource>(
+//       () => OnBoardingLocalDatasourceImpl(sl()),
+//     )
+//     ..registerLazySingleton(() => prefs);
+// }

@@ -22,8 +22,11 @@ class OnBoardingRepositoryImpl implements OnBoardingRepository {
   }
 
   @override
-  ResultFuture<bool> checkIfUserIsFirstTimer() {
-    // TODO: implement checkIfUserIsFirstTimer
-    throw UnimplementedError();
+  ResultFuture<bool> checkIfUserIsFirstTimer() async {
+    try {
+      return Right(await _datasource.checkIfUseridFirstTimer());
+    } on CacheException catch (e) {
+      return Left(CacheFailure(message: e.message, statusCode: e.statusCode));
+    }
   }
 }

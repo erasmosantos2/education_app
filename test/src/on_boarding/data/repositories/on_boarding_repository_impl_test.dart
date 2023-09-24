@@ -56,4 +56,50 @@ void main() {
       verifyNoMoreInteractions(datasource);
     });
   });
+
+  group('CheckIfUserIsFirstTimer', () {
+    test('Should return [true] when user is first timer', () async {
+      when(() => datasource.checkIfUseridFirstTimer())
+          .thenAnswer((_) async => Future.value(true));
+      final result = await repository.checkIfUserIsFirstTimer();
+
+      expect(result, equals(const Right<dynamic, bool>(true)));
+      verify(() => datasource.checkIfUseridFirstTimer()).called(1);
+      verifyNoMoreInteractions(datasource);
+    });
+
+    test('Should return [false] when user is not first timer', () async {
+      when(() => datasource.checkIfUseridFirstTimer())
+          .thenAnswer((_) async => Future.value(false));
+
+      final result = await repository.checkIfUserIsFirstTimer();
+
+      expect(result, equals(const Right<dynamic, bool>(false)));
+      verify(
+        () => datasource.checkIfUseridFirstTimer(),
+      );
+      verifyNoMoreInteractions(datasource);
+    });
+
+    test(
+        'Should return a CacheFailure when call to local source '
+        'is unsuccess', () async {
+      when(() => datasource.checkIfUseridFirstTimer()).thenThrow(
+        const CacheException(
+          message: 'Insufficient permissions',
+          statusCode: 403,
+        ),
+      );
+      final result = await repository.checkIfUserIsFirstTimer();
+      expect(
+        result,
+        Left<CacheFailure, bool>(
+          CacheFailure(
+            message: 'Insufficient permissions',
+            statusCode: 403,
+          ),
+        ),
+      );
+    });
+  });
 }

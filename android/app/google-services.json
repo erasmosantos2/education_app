@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "203612955272",
+    "project_id": "education-app-786ca",
+    "storage_bucket": "education-app-786ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203612955272:android:fb97aad45e0cafdf8ab53d",
+        "android_client_info": {
+          "package_name": "br.com.educationapp.education_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB8Q0hugD3u4MJ-rkWH6EtGUawEDLJgY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
