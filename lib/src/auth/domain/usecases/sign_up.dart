@@ -3,28 +3,28 @@ import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/auth/domain/repository/auth_repository.dart';
 import 'package:equatable/equatable.dart';
 
-class SignUp implements UsecaseWithParams<void, CreateUserParams> {
+class SignUp implements UsecaseWithParams<void, SignUpParams> {
   const SignUp(
     this._repository,
   );
   final AuthRepository _repository;
 
   @override
-  ResultFuture<void> call(CreateUserParams params) => _repository.signUp(
+  ResultFuture<void> call(SignUpParams params) => _repository.signUp(
         email: params.email,
         password: params.password,
         fullName: params.fullName,
       );
 }
 
-class CreateUserParams extends Equatable {
-  const CreateUserParams({
+class SignUpParams extends Equatable {
+  const SignUpParams({
     required this.email,
     required this.password,
     required this.fullName,
   });
 
-  const CreateUserParams.empty()
+  const SignUpParams.empty()
       : this(
           email: '',
           password: '',

@@ -29,7 +29,7 @@ void main() {
     ).thenAnswer((_) async => const Right(null));
 
     final result = await usecase(
-      const CreateUserParams(
+      const SignUpParams(
         email: tEmail,
         password: tPassword,
         fullName: tFullName,
