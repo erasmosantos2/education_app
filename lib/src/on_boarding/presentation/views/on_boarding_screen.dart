@@ -39,7 +39,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             if (state is OnBoardingStatus && !state.isFirstTimer) {
               Navigator.restorablePushReplacementNamed(context, '/home');
             } else if (state is UserCached) {
-              // Todo(User-Cached-Handler): Push to the appropiate Screen
+              Navigator.pushReplacementNamed(context, '/');
             }
           },
           builder: (context, state) {
@@ -77,7 +77,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       dotColor: Colors.white,
                     ),
                   ),
-                )
+                ),
               ],
             );
           },
