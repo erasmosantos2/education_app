@@ -20,7 +20,7 @@ Route<dynamic> generateRouter(RouteSettings settings) {
               fullname: user.displayName ?? '',
             );
             context.userProvider.initUser(localUser);
-            return const Dashboard();
+            return const DashBoard();
           } else {
             return BlocProvider(
               create: (_) => sl<AuthBloc>(),
@@ -48,9 +48,9 @@ Route<dynamic> generateRouter(RouteSettings settings) {
         },
         settings: settings,
       );
-    case Dashboard.routeName:
+    case DashBoard.routeName:
       return _pageBuilder(
-        (_) => const Dashboard(),
+        (_) => const DashBoard(),
         settings: settings,
       );
     case 'forgot-password':

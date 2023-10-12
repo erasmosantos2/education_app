@@ -5,7 +5,6 @@ import 'package:education_app/core/res/fonts.dart';
 import 'package:education_app/core/res/media_res.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/src/auth/data/models/user_model.dart';
-import 'package:education_app/src/auth/domain/usecases/sign_up.dart';
 import 'package:education_app/src/auth/presentation/bloc/auth_bloc.dart';
 import 'package:education_app/src/auth/presentation/bloc/auth_event.dart';
 import 'package:education_app/src/auth/presentation/bloc/auth_state.dart';
@@ -57,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 );
           } else if (state is SignedIn) {
             context.read<UserProvider>().initUser(state.user as LocalUserModel);
-            Navigator.pushReplacementNamed(context, Dashboard.routeName);
+            Navigator.pushReplacementNamed(context, DashBoard.routeName);
           }
         },
         builder: (context, state) {

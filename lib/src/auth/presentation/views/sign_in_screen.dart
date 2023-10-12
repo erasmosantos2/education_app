@@ -48,7 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
             CoreUtils.showSnackBar(context, state.message);
           } else if (state is SignedIn) {
             context.read<UserProvider>().initUser(state.user as LocalUserModel);
-            Navigator.pushReplacementNamed(context, Dashboard.routeName);
+            Navigator.pushReplacementNamed(context, DashBoard.routeName);
           }
         },
         builder: (context, state) {
