@@ -195,7 +195,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           LocalUserModel(
             uid: user.uid,
             email: user.email ?? fallBackEmail,
-            fullname: user.displayName ?? '',
+            fullName: user.displayName ?? '',
             profilePic: user.photoURL ?? '',
             points: 0,
           ).toMap(),

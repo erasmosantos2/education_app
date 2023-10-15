@@ -52,9 +52,7 @@ class OnBoardingBody extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // TODO(Get-Started): implements this functionality.
                   context.read<OnboardingCubit>().cacheFirstTimer();
-                  // Push them to the appropriate screen
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(

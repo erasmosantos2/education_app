@@ -17,7 +17,7 @@ Route<dynamic> generateRouter(RouteSettings settings) {
               uid: user.uid,
               email: user.email ?? '',
               points: 0,
-              fullname: user.displayName ?? '',
+              fullName: user.displayName ?? '',
             );
             context.userProvider.initUser(localUser);
             return const DashBoard();
