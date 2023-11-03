@@ -31,8 +31,6 @@ class CourseModel extends Course {
           updatedAt: (map['updatedAt'] as Timestamp).toDate(),
         );
 
-  // factory Course.fromJson(String source) => Course.fromMap(json.decode(source));
-
   CourseModel.empty()
       : this(
           id: '_empty.id',
