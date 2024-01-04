@@ -12,7 +12,7 @@ class Course extends Equatable {
     required this.updatedAt,
     this.description,
     this.image,
-    this.imageFile = false,
+    this.imageIsFile = false,
   });
 
   Course.empty()
@@ -37,7 +37,7 @@ class Course extends Equatable {
   final int numberOfVideos;
   final String groupId;
   final String? image;
-  final bool imageFile;
+  final bool imageIsFile;
   final DateTime createdAt;
   final DateTime updatedAt;
 

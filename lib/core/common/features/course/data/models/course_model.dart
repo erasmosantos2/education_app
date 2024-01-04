@@ -14,7 +14,7 @@ class CourseModel extends Course {
     required super.updatedAt,
     super.description,
     super.image,
-    super.imageFile = false,
+    super.imageIsFile = false,
   });
 
   CourseModel.fromMap(DataMap map)
@@ -44,29 +44,29 @@ class CourseModel extends Course {
           description: '_empty.description',
         );
 
-  Course copyWith({
+  CourseModel copyWith({
     String? id,
     String? title,
     String? description,
+    String? groupId,
+    int? numberOfVideos,
     int? numberOfExams,
     int? numberOfMaterials,
-    int? numberOfVideos,
-    String? groupId,
     String? image,
-    bool? imageFile,
+    bool? imageIsFile,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
-    return Course(
+    return CourseModel(
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
-      numberOfExams: numberOfExams ?? this.numberOfExams,
-      numberOfMaterials: numberOfMaterials ?? this.numberOfMaterials,
-      numberOfVideos: numberOfVideos ?? this.numberOfVideos,
       groupId: groupId ?? this.groupId,
       image: image ?? this.image,
-      imageFile: imageFile ?? this.imageFile,
+      numberOfVideos: numberOfVideos ?? this.numberOfVideos,
+      numberOfExams: numberOfExams ?? this.numberOfExams,
+      numberOfMaterials: numberOfMaterials ?? this.numberOfMaterials,
+      imageIsFile: imageIsFile ?? this.imageIsFile,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -93,6 +93,7 @@ class CourseModel extends Course {
         ' numberOfExams: $numberOfExams, '
         ' numberOfMaterials: $numberOfMaterials, '
         ' numberOfVideos: $numberOfVideos, groupId: $groupId, image: $image, '
-        ' imageFile: $imageFile, createdAt: $createdAt, updatedAt: $updatedAt)';
+        ' imageFile: $imageIsFile, createdAt: $createdAt, '
+        ' updatedAt: $updatedAt)';
   }
 }

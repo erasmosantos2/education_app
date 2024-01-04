@@ -72,7 +72,9 @@ void main() {
       expect(result, isA<Right<dynamic, List<Course>>>());
     });
 
-    test('should return [ServerException]', () async {
+    test(
+        'should return [ServerFailure] when call  to remote source is '
+        ' unsuccessful', () async {
       when(() => dataSource.getCourses()).thenThrow(tException);
 
       final result = await repo.getCourses();
