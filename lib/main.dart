@@ -1,3 +1,4 @@
+import 'package:education_app/core/common/app/providers/course_notifier.dart';
 import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/res/fonts.dart';
 import 'package:education_app/core/services/injection_container.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => DashBoardController()),
+        ChangeNotifierProvider(create: (_) => CourseOfTheDayNotifier()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
