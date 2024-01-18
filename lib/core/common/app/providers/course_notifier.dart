@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class CourseOfTheDayNotifier extends ChangeNotifier {
   Course? _courseOfTheDay;
 
-  Course? courseOfTheDay() => _courseOfTheDay;
+  Course? get courseOfTheDay => _courseOfTheDay;
 
   void setCourseOfTheDay(Course course) {
     _courseOfTheDay ??= course;
