@@ -34,6 +34,5 @@ class Group extends Equatable {
   final String? lastMessageSenderName;
 
   @override
-  // TODO: implement props
   List<Object?> get props => [id, name, courseId];
 }
